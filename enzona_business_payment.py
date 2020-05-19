@@ -8,7 +8,7 @@ License: GNU GPL from the Free Software Foundation v3 and later.
 import json
 import requests
 
-from ElMercaditoWeb.enzona.enzona_api import enzona_api
+import enzona_api
 
 
 class enzona_business_payment(enzona_api):
