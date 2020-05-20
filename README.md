@@ -71,7 +71,7 @@ In case of an effective payment you must make a confirmation of the payment:
     
 When a successful payment is made from the platform, it returns to URL_RETURN with a transaction_uuid value in its GET request:
 
-Example: www.example.com/cancel_payment?transaction_uuid=eff02133c1724287b10860824c596777
+Example: www.example.com/complete_payment?transaction_uuid=eff02133c1724287b10860824c596777
 
 That value must be captured and the payment confirmation created. The complete_payments function returns an object of type response_operation_payments:
 - **transaction_uuid**: Transaction identifier
