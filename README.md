@@ -5,7 +5,9 @@ Enzona's payment platform API access library (https://www.enzona.net/)
 
 # How to install?
 
-pip install enzona-api
+    pip install enzona-api
+ 
+ Requires Python >= 3.5 with pip.
 
 # Acquiring the access keys
 To acquire the credentials to use this platform you must register your business at https://bulevar.enzona.net/. Once you have registered your business, to make the corresponding API requests you must access https://api.enzona.net/store/. The credentials for access to the above system, must be sent to your email within 72 hours (At the time of this publication, the granting of credentials was paralyzed but will be continued thereafter). Authenticated you must check if the registered commerce appears from the **Applications** section:
