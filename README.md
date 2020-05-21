@@ -87,7 +87,7 @@ In case of cancellation of a payment:
 The function cancel_payments returns a response_operation_payments object and cancels the initiated payment.
 
 # Refund of payments
-Para realizar un pago parcial debe utilizarse la función payments_refund con el parámetro Payload que indica el valor que se desea retornar al cliente. No usar este parámetro indica la realización de un pago total:
+To make a partial payment you must use the payments_refund function with the Payload parameter that indicates the value you want to return to the customer. Not using this parameter indicates that a full payment has been made:
 
     #Pago parcial
     payload = Payload(total=20.0, description="devolucion parcial1")
@@ -143,7 +143,7 @@ In order to know the merchant_uid of your market you must enter the Enzona platf
 ![screenshot4](https://github.com/JosueCarballo/enzona_api/blob/master/screenshot/comercios.png)
 
 # Get refound made
-Para obtener las devoluciones realizadas emplea la función get_payments_refund que retornará un objeto de tipo response_get_refound que es una lista de las operaciones de devolución:
+To obtain the returns made you use the function get_payments_refund that will return an object of type response_get_refound that is a list of the return operations:
 
     response = ebp.get_payments_refund(merchant_uuid=merchant_uuid)
     refunds = response.get_refunds()
@@ -156,9 +156,9 @@ Para obtener las devoluciones realizadas emplea la función get_payments_refund 
         print("")
 
 # Thanks to
-- Alejandro Lavin (Desarrollador Enzona)
-- Sergio Miguel Damas Milán (Desarrollador Enzona)
-- Carlos Cesar Caballero (Desarrollador)
+- Alejandro Lavin (Developer Enzona)
+- Sergio Miguel Damas Milán (Developer Enzona)
+- Carlos Cesar Caballero (Developer)
 
 # Source
 - https://apisandbox.enzona.net/store/site/themes/wso2/templates/api/documentation/download.jag?tenant=carbon.super&resourceUrl=/registry/resource/_system/governance/apimgt/applicationdata/provider/admin/PaymentAPI/v1.0.0/documentation/files/C%C3%B3mo%20Obtener%20el%20token%20de%20acceso%20en%20las%20%20APIs.docx
