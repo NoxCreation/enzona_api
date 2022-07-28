@@ -164,7 +164,7 @@ class Payload():
         }
 
 
-class Product():
+class mProduct():
     def __init__(self, name, description, quantity, price, tax):
         self.name = name
         self.description = description
@@ -183,7 +183,7 @@ class Product():
 
 
 class Payments():
-    def __init__(self, description_payment, currency, shipping, discount, tip, lst_products, merchant_op_id, invoice_number,
+    def __init__(self, merchant_uuid, description_payment, currency, shipping, discount, tip, lst_products, merchant_op_id, invoice_number,
                  return_url, cancel_url, terminal_id):
 
         shipping = float(shipping)
@@ -215,6 +215,7 @@ class Payments():
         else: tip = str(tip)
 
         self.payment_data = {
+            "merchant_uuid": merchant_uuid,
             "description": description_payment,
             "currency": currency,
             "amount": {

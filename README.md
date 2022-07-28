@@ -23,6 +23,8 @@ We enter our shop and in **Production Keys** we notice that we have two keys, **
     
     ebp = enzona_business_payment(CONSUMER_KEY, CONSUMER_SECRET)
     
+    merchant_uuid = "her put your merchant_uuid" #your merchant_uuid
+    
     SHIPPING = 10.0
     DISCOUNT = 2.0
     TIP = 5.0
@@ -37,6 +39,7 @@ We enter our shop and in **Production Keys** we notice that we have two keys, **
     lst_products = [product1.get_product(), product2.get_product()]
     
     pay = Payments(
+        merchant_uuid=merchant_uuid,
         description_payment= "Description pay",
         currency="CUP",
         shipping=SHIPPING,
