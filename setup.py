@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name="enzona-api",
-      version="0.0.4",
+      version="0.0.8",
       description="Enzona's payment platform API access library",
       author="Josué Carballo Baños",
       author_email='josueccb@yandex.com',
       license="GPL 3.0",
       long_description=long_description,
       long_description_content_type="text/markdown",
-      url="https://github.com/JosueCarballo/enzona_api",
+      url="https://github.com/MoonMagiCreation/enzona_api",
       #packages=['enzona_api'],
       packages=find_packages(),
       install_requires=["requests>=2.23.0", "bs4>=0.0.1", "qrcode>=6.1"],
