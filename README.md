@@ -162,6 +162,7 @@ To obtain the returns made you use the function get_payments_refund that will re
 - Alejandro Lavin (Developer Enzona)
 - Sergio Miguel Damas Milán (Developer Enzona)
 - Carlos Cesar Caballero (Developer)
+- Dennis Beltrán Romero (Collaborator)
 
 # Source
 - https://apisandbox.enzona.net/store/site/themes/wso2/templates/api/documentation/download.jag?tenant=carbon.super&resourceUrl=/registry/resource/_system/governance/apimgt/applicationdata/provider/admin/PaymentAPI/v1.0.0/documentation/files/C%C3%B3mo%20Obtener%20el%20token%20de%20acceso%20en%20las%20%20APIs.docx
