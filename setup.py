@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name="enzona-api",
-      version="0.0.8",
+      version="0.0.9",
       description="Enzona's payment platform API access library",
       author="Josué Carballo Baños",
       author_email='josueccb@yandex.com',
