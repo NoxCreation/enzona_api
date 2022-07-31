@@ -3,7 +3,7 @@ from .enzona_api import (
     enzona_api
 )
 
-from .enzona_business_payment import (enzona_business_payment, Payments, Product, Payload)
+from .enzona_business_payment import (enzona_business_payment, Payments, mProduct, Payload)
 
 from .responses import (response_payments, response_operation_payments, response_return_payments, response_get_refound)
 
