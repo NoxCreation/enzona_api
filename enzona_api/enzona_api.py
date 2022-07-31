@@ -1,9 +1,9 @@
-'''
+"""
     This library is still in the process of being created. It is not recommended to use it yet in development.
 
 Author: Josué Carballo Baños
 License: GNU GPL from the Free Software Foundation v3 and later.
-'''
+"""
 
 import base64
 from io import BytesIO
@@ -39,6 +39,7 @@ class enzona_api():
         self.token = json_response["access_token"]
         return json_response['access_token']
 
-    def get_base64(self, text):
+    @staticmethod
+    def get_base64(text):
         return str(base64.b64encode(bytes(text, "utf-8"))).__str__()
 
