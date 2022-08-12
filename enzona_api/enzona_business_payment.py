@@ -40,7 +40,15 @@ class enzona_business_payment(enzona_api):
             "https://api.enzona.net/payment/v1.0.0/payments",
             data=json.dumps(payment), headers=headers)
         try:
-            return response_payments(response.json())
+            if response.status_code != 200:
+                return {
+                    "error": response.reason,
+                    "code": response.status_code,
+                    "url": response.url,
+                    "headers": response.headers,
+                }
+            else:
+                return response_payments(response.json())
         except EnzonaError as e:
             print(e)
 
@@ -138,6 +146,7 @@ class enzona_business_payment(enzona_api):
             return response_refound(response.json())
         except EnzonaError as e:
             print(e)
+            return e
 
     def get_payments_refund(self, merchant_uuid, offset=0, limit=10,
                             status_filter=None):
@@ -167,6 +176,7 @@ class enzona_business_payment(enzona_api):
             return response_get_refound(response.json())
         except EnzonaError as e:
             print(e)
+            return e
 
 
 class Payload():

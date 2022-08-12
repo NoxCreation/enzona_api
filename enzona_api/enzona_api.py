@@ -11,6 +11,8 @@ import requests
 import qrcode
 import json
 
+from requests import Timeout
+
 
 class enzona_api():
     token = None
@@ -34,12 +36,23 @@ class enzona_api():
         headers = {
             "Authorization": "Basic " + bs4.split("'")[1]
         }
-        response = requests.post("https://api.enzona.net/token", data=data, headers=headers)
-        json_response = response.json()
-        self.token = json_response["access_token"]
-        return json_response['access_token']
+        response = requests.post("https://api.enzona.net/token", data=data,
+                                 headers=headers)
+        try:
+            if response.status_code != 200:
+                return response.reason
+            else:
+                json_response = response.json()
+                self.token = json_response["access_token"]
+                return json_response['access_token']
+
+        except ConnectionError as error:
+            return {'success': False, 'error': 'Network Error',
+                    'error_detail': error}
+        except Timeout as error:
+            return {'success': False, 'error': 'Network Conection Timeout',
+                    'error_detail': error}
 
     @staticmethod
     def get_base64(text):
         return str(base64.b64encode(bytes(text, "utf-8"))).__str__()
-
