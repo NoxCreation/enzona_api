@@ -51,6 +51,7 @@ class enzona_business_payment(enzona_api):
                 return response_payments(response.json())
         except EnzonaError as e:
             print(e)
+            return e
 
     def cancel_payments(self, transaction_uuid):
         """
@@ -66,9 +67,18 @@ class enzona_business_payment(enzona_api):
             "https://api.enzona.net/payment/v1.0.0/payments/{0}/cancel".format(
                 transaction_uuid), headers=headers)
         try:
-            return response_operation_payments(response.json())
+            if response.status_code != 200:
+                return {
+                    "error": response.reason,
+                    "code": response.status_code,
+                    "url": response.url,
+                    "headers": response.headers,
+                }
+            else:
+                return response_operation_payments(response.json())
         except EnzonaError as e:
             print(e)
+            return e
 
     # Completar un pago
     def complete_payments(self, transaction_uuid):
@@ -86,9 +96,18 @@ class enzona_business_payment(enzona_api):
             "https://api.enzona.net/payment/v1.0.0/payments/{0}/"
             "complete".format(transaction_uuid), data=data, headers=headers)
         try:
-            return response_operation_payments(response.json())
+            if response.status_code != 200:
+                return {
+                    "error": response.reason,
+                    "code": response.status_code,
+                    "url": response.url,
+                    "headers": response.headers,
+                }
+            else:
+                return response_operation_payments(response.json())
         except EnzonaError as e:
             print(e)
+            return e
 
     def get_payments(self, merchant_uuid, offset=0, limit=10,
                      status_filter=None, start_date_filter="",
@@ -120,9 +139,18 @@ class enzona_business_payment(enzona_api):
             "&start_date_filter=" + start_date_filter +
             "&end_date_filter=" + end_date_filter, headers=headers)
         try:
-            return response_return_payments(response.json())
+            if response.status_code != 200:
+                return {
+                    "error": response.reason,
+                    "code": response.status_code,
+                    "url": response.url,
+                    "headers": response.headers,
+                }
+            else:
+                return response_return_payments(response.json())
         except EnzonaError as e:
             print(e)
+            return e
 
     def payments_refund(self, transaction_uuid, Payload=None):
         """
